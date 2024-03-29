@@ -126,22 +126,27 @@ li:hover {
 	margin-bottom: 1em;
 }
 
-.filtres {
+.filters {
 	display: flex;
 	justify-content: center;
 	gap: 10px;
 	margin: 50px;
 }
-.filtres p {
+.filters input {
 	display: flex;
 	align-items: center;
 	font-family: 'Syne';
 	font-weight: 700;
 	color: #1D6154;
+	background-color: #FFFFFF;
 	height: 37px;
 	padding: 0 19px;
 	border: 2px solid #1D6154;
 	border-radius: 60px;
+}
+.filters input:hover {
+	background-color: #1D6154;
+	color: #FFFFFF;
 }
 
 .gallery {
