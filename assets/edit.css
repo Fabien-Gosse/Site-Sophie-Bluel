@@ -1,0 +1,59 @@
+.header-edit {
+    display: none;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 59px;
+    background-color: black;
+    color: white;
+    gap: 21px;
+    font-size: 16px;
+}
+
+.navLogin {
+    display: inline;
+}
+
+.navLogout {
+    display: none;
+}
+
+.logout {
+    border: none;
+    background: transparent;
+	font-family: 'Work Sans' ;
+    font-size: 16px;
+}
+
+.logout:hover {
+    text-decoration: underline;
+}
+
+.modification {
+    display: none;
+    position: relative;
+    bottom: 51px;
+    left: 700px;
+    font-size: 16px;
+    color: black;
+}
+
+.modification i {
+    margin-right: 10px;
+}
+
+.display-flex {
+    display: flex;
+}
+
+.display-inline {
+    display: inline;
+}
+
+.display-none {
+    display: none;
+}
+
+.display-block {
+    display: block;
+}
