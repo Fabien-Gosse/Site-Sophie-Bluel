@@ -10,12 +10,12 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
     <link rel="stylesheet" href="./assets/login.css">
-	<script src="./assets/script.js" defer></script>
+	<script src="./assets/login.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
+                <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
         <nav>
             <ul>
                 <li>projets</li>
@@ -28,15 +28,14 @@
     <main>
         <section id="login" class="center">
             <h2 class="margin-bot30 margin-top100">Log In</h2>
-            <form class="width-max">
+            <form class="width-max formLogin">
                 <label for="email" class="text-start margin-bot6 color-darkgrey">E-mail</label>
                 <input type="text" id="email" name="email" class="width-max height-49 shadow margin-bot30 border-none" required> <br>
                 <label for="email" class="text-start margin-bot6 color-darkgrey">Mot de passe</label>
                 <input type="text" id="password" name="password" class="width-max height-49 shadow border-none" required> <br>
-                <input type="submit" value="Se connnecter" class="heigth-36 border-none">
+                <input type="submit" value="Se connnecter" class="btnSeConnecter heigth-36 border-none">
             </form>
             <p class="margin-bot365 color-darkgrey underline">Mot de passe oublié</p>
-
         </section>
     </main>
     <footer>
@@ -46,5 +45,11 @@
             </ul>
         </nav>
     </footer>
+    <!-- Popup d'erreur -->
+    <div class="popupBackground">
+        <div class="popup">
+            <p>Erreur dans l’identifiant ou le mot de passe</p>
+        </div>
+    </div>
 </body>
 </html>

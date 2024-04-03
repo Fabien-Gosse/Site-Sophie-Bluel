@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    checkToken ();
+    logout ();
     const projects = await getProjects();
+    console.log(projects);
     const filters = await getFilters();
 
     generateArticles(projects);
@@ -122,28 +125,73 @@ function articlesTous (projects) {
     })
 }
 
+//recupération du Token de vérification si aucun déjà présent
+function checkToken () {
+    const tokenSave = localStorage.getItem("tokenSave");
+    const tokenLogin = localStorage.getItem("tokenLogin");
+    console.log(tokenSave);
+    console.log(tokenLogin);
+    if (tokenSave === null && tokenLogin !== null) {
+        const idConnexion = {
+            "email": "sophie.bluel@test.tld",
+            "password": "S0phie"
+        };
+        const bodyCharge = (JSON.stringify(idConnexion));          
+        getToken (bodyCharge);
+    } else {
+        checkLogin ();
+    }
+}
 
-    /*
-    let categoryNameArray = Array.from(new Set(categoryNameMap));
+async function getToken (bodyCharge) {
+    const getLogin = (await fetch("http://localhost:5678/api/users/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: bodyCharge
+    })).json();
+      
+    await getLogin.then((value) => {
+        token = value.token
+        console.log(token);
+        return token
+    });
+    tokenSave (token);
+}
 
-    }*/
-//     const sectionFiltres = document.querySelector(".filtres");
+function tokenSave (token) {
+    localStorage.setItem("tokenSave", token);
+    checkLogin ();
+}
 
-//     // ciblage des filtres en effacant ceux redondants
-//     const categoryMap = works.map(works => works.category)
-//     const categoryNameMap = categoryMap.map(categoryMap => categoryMap.name)
-//     let categoryNameArray = Array.from(new Set(categoryNameMap));
-    
-//     for (let i = 0; i < categoryNameArray.length; i++) {
+function checkLogin () {
+    let tokenSave = localStorage.getItem("tokenSave");
+    const tokenLogin = localStorage.getItem("tokenLogin");
+    console.log(tokenLogin)
 
-//         categoryName = categoryNameArray[i]
+    if (tokenLogin === tokenSave && tokenLogin !== null) {
+        topEdit = document.querySelector(".header-edit");
+        loginEdit = document.querySelector(".navLogin");
+        logoutEdit = document.querySelector(".navLogout");
+        modificationEdit = document.querySelector(".modification");
+        filtersEdit = document.querySelector(".filters");
 
-//         console.log(categoryName);
-//         let filtres = document.createElement("input");
-//         filtres.type = "button";
-//         filtres.value = categoryName;
-//         filtres.classList.add(categoryName);
+        topEdit.classList.add("display-flex");
+        loginEdit.classList.add("display-none");
+        logoutEdit.classList.add("display-inline");
+        modificationEdit.classList.add("display-block");
+        filtersEdit.classList.add("display-none");
+    } else {
+        localStorage.removeItem("tokenSave");
+        tokenSave = localStorage.getItem("tokenSave");
+        console.log(tokenSave);
+    }
+}
 
-        
-//         sectionFiltres.appendChild(filtres)
-//     }
+function logout () {
+    buttonLogout = document.querySelector(".logout");
+    buttonLogout.addEventListener("click", function() { 
+        localStorage.removeItem("tokenLogin");
+        tokenSave = localStorage.getItem("tokenLogin");
+        document.location.href="./index.html";
+    })
+}

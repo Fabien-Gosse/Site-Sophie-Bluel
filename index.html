@@ -8,17 +8,26 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link rel="stylesheet" href="./assets/style.css">
+	<link rel="stylesheet" href="./assets/edit.css">
 	<script src="./assets/script.js" defer></script>
 </head>
 <body>
+<div class="edit-mod header-edit">
+	<i class="fa-regular fa-pen-to-square"></i>
+	<p>Mode édition</p>
+</div>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li>login</li>
+			<li><a href="">projets</a></li>
+			<li><a href="">contact</a></li>
+			<li class="navLogin"><a href="./login.html">login</a></li>
+			<li class="navLogout"><button class="logout">logout</button></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -36,7 +45,10 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<h2>Mes Projets </h2>
+		<div class="modification"> 
+			<a>	<i class="fa-regular fa-pen-to-square"></i>	Modifier</a>
+		</div>
 		<div class="filters">
 			<input type="button" value="Tous" name="filters0" class="filters0">
 		</div>

@@ -95,6 +95,12 @@ nav li {
 	padding: 0 10px;
 	font-size: 1.2em;
 }
+nav a {
+	text-decoration: none;
+}
+nav a:hover {
+	text-decoration: underline;
+}
 
 li:hover {
 	color: #B1663C;
