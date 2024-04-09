@@ -1,22 +1,28 @@
-function fieldsValidation() {
+document.addEventListener("DOMContentLoaded", () => {
+  void fieldsValidation();
+});
+
+async function fieldsValidation() {
   const formLogin = document.querySelector(".formLogin");
-  formLogin.addEventListener("submit", function (evt) {
+  formLogin.addEventListener("submit", async function (evt) {
     evt.preventDefault();
 
-    let baliseEmail = document.getElementById("email");
-    email = baliseEmail.value;
-    let balisePassword = document.getElementById("password");
-    password = balisePassword.value;
-    console.log(email);
-    console.log(password);
+    const baliseEmail = document.getElementById("email");
+    const balisePassword = document.getElementById("password");
 
-    if (email + password === "sophie.bluel@test.tld" + "S0phie") {
-      const idConnexion = {
-        email: email,
-        password: password,
-      };
-      const bodyCharge = JSON.stringify(idConnexion);
-      getToken(bodyCharge);
+    const email = baliseEmail.value;
+    const password = balisePassword.value;
+
+    const idConnexion = {
+      email: email,
+      password: password,
+    };
+
+    const bodyCharge = JSON.stringify(idConnexion);
+    const response = await createToken(bodyCharge);
+
+    if (response.token) {
+      login(response.token);
     } else {
       let popupBackground = document.querySelector(".popupBackground");
       // Quand on a cliqué sur le bouton partagé, on affiche la popup
@@ -45,23 +51,16 @@ function popupHide() {
   popupBackground.classList.remove("active");
 }
 
-fieldsValidation();
-
-async function getToken(bodyCharge) {
-  const getLogin = (
-    await fetch("http://localhost:5678/api/users/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: bodyCharge,
-    })
-  ).json();
-
-  await getLogin.then((value) => {
-    token = value.token;
-    console.log(token);
-    return token;
+async function createToken(bodyCharge) {
+  // Fetch request to login endpoint
+  const response = await fetch("http://localhost:5678/api/users/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: bodyCharge,
   });
-  login(token);
+
+  // Wait for the JSON response
+  return await response.json();
 }
 
 function login(token) {
