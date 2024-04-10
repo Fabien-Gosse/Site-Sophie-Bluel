@@ -137,8 +137,13 @@ table {
 header {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
+  margin: 50px 0 109px 0;
 }
+main {
+  max-width: 950px;
+  margin: auto;
+}
+
 section {
   margin: 50px 0;
 }
@@ -168,9 +173,9 @@ nav ul {
   display: flex;
   align-items: center;
   list-style-type: none;
+  gap: 44px;
 }
 nav li {
-  padding: 0 10px;
   font-size: 1.2em;
 }
 nav a {
@@ -179,6 +184,9 @@ nav a {
 nav a:hover {
   text-decoration: underline;
 }
+nav .fa-instagram {
+  font-size: 23px;
+}
 
 li:hover {
   color: #b1663c;
@@ -186,14 +194,17 @@ li:hover {
 #introduction {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  margin: 109px 0;
 }
 #introduction figure {
   flex: 1;
 }
 #introduction img {
   display: block;
-  margin: auto;
-  width: 80%;
+  margin-right: 5em;
+  height: 335px;
+  width: 474px;
 }
 
 #introduction article {
@@ -215,13 +226,14 @@ li:hover {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 50px;
+  margin: 21px 0 50px 0;
 }
 .filters input {
   display: flex;
   align-items: center;
   font-family: "Syne";
   font-weight: 700;
+  font-size: 16px;
   color: #1d6154;
   background-color: #ffffff;
   height: 37px;
@@ -239,11 +251,12 @@ li:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-row-gap: 16px;
 }
 
 .gallery img {
   width: 100%;
+  margin-bottom: 7px;
 }
 #contact {
   width: 50%;
@@ -263,8 +276,7 @@ li:hover {
 }
 
 #contact input {
-  height: 50px;
-  font-size: 1.2em;
+  height: 36px;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
@@ -316,7 +328,6 @@ input[type="submit"] {
   width: 630px;
   max-width: calc(100vw - 20px);
   max-height: calc(100vh - 20px);
-  background-color: #ffffff;
   border-radius: 10px;
 }
 
@@ -325,8 +336,10 @@ input[type="submit"] {
 footer nav ul {
   display: flex;
   justify-content: flex-end;
-  background-color: white;
-  padding: 2em;
+  font-family: "Work Sans", serif;
+  font-size: 14px;
+  height: 60px;
+  padding-right: 107px;
 }
 
 .d-flex {
@@ -493,6 +506,12 @@ form img {
   height: 170px;
 }
 
+/****** Objets a deplacer ******/
+
 .backgroundGreen {
   background-color: #1d6154;
+}
+
+.backgroungWhite {
+  background-color: #ffffff;
 }

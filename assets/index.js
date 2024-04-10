@@ -29,30 +29,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   validateForm.addEventListener("submit", async function (af) {
     af.preventDefault();
 
-    const projects = await getProjects();
-    let lastProjects = projects[projects.length - 1];
-    let id = Number(lastProjects.id) + 1;
-
-    const userId = 1;
-    /*
     const formData = new FormData(validateForm);
-    formData.append("id", id);
-    formData.append("userId", userId);
     console.log(formData);
-    */
-    const baliseTitre = document.querySelector(".titreNewArticle");
-    const baliseCategorie = document.querySelector(".categorieNewArticle");
-    const file = document.querySelector("input[type=file]").files[0];
 
-    const baliseTitreValue = baliseTitre.value;
-    const baliseCategorieValue = baliseCategorie.value;
-
-    const formData = new FormData();
-    formData.append("id", id);
-    formData.append("title", baliseTitreValue);
-    formData.append("imageUrl", file);
-    formData.append("categoryId", baliseCategorieValue);
-    formData.append("userId", userId);
     for (var value of formData.values()) {
       console.log(value);
     }
@@ -64,6 +43,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       headers: addWorksHeaders,
       body: formData,
     });
+    console.log(request.status);
+    if (request.status === 201) {
+      const projects = await getProjects();
+      const sectionGallery = document.querySelector(".gallery");
+      // Suppression des fiches existantes
+      sectionGallery.innerHTML = "";
+      generateArticles(projects);
+    } else {
+      console.log("error");
+    }
   });
 
   buttonLogout.addEventListener("click", function () {
@@ -88,6 +77,7 @@ function generateArticles(projects) {
   for (let i = 0; i < projects.length; i++) {
     // Récupération des pièces depuis l'API
     const article = projects[i];
+    console.log(article);
     // Récupération de l'élément du DOM qui accueillera les fiches
     const sectionGallery = document.querySelector(".gallery");
     // Création des éléments
@@ -354,13 +344,14 @@ async function generateOptCategorie() {
   const filters = await getFilters();
   //Recupération du nom des catégories
   const categoryName = filters.map((filters) => filters.name);
+  const categoryId = filters.map((filters) => filters.id);
   for (let i = 0; i < categoryName.length; i++) {
     //Création des élements
     const selectCategorie = document.querySelector(".categorieNewArticle");
     const optCategorie = document.createElement("option");
 
     //Attribution des propriétés aux boutons
-    optCategorie.value = categoryName[i];
+    optCategorie.value = categoryId[i];
     optCategorie.label = categoryName[i];
     selectCategorie.appendChild(optCategorie);
   }
