@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   generateArticles(projects);
   generateFilters(filters);
   buttonFilters(filters, projects);
+  document.querySelector("body").onload = anchorage();
   articlesTous(projects);
   formOk();
 
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (request.status === 201) {
       const projects = await getProjects();
       const sectionGallery = document.querySelector(".gallery");
+      formReset();
       // Suppression des fiches existantes
       sectionGallery.innerHTML = "";
       generateArticles(projects);
@@ -168,6 +170,7 @@ function articlesTous(projects) {
 // Récupération du token de vérification
 function toggleDisplay() {
   const tokenLogin = localStorage.getItem("tokenLogin");
+  console.log(tokenLogin);
 
   if (tokenLogin) {
     const topEdit = document.querySelector(".header-edit");
@@ -176,7 +179,7 @@ function toggleDisplay() {
     const modificationEdit = document.querySelector(".modification");
     const filtersEdit = document.querySelector(".filters");
 
-    topEdit.classList.add("display-flex");
+    topEdit.classList.add("display-flexImpotant");
     loginEdit.classList.add("display-none");
     logoutEdit.classList.add("display-inline");
     modificationEdit.classList.add("display-block");
@@ -191,7 +194,7 @@ const openModal = async function (e) {
 
   modal = document.querySelector(e.currentTarget.getAttribute("href"));
   console.log(modal);
-  modal.classList.add("display-flex");
+  modal.classList.add("display-flexImpotant");
   modal.removeAttribute("aria-hidden");
   modal.setAttribute("aria-modal", "true");
   modal.addEventListener("click", closeModal);
@@ -207,7 +210,7 @@ const closeModal = function (e) {
   if (modal === null) return;
   e.preventDefault();
 
-  modal.classList.remove("display-flex");
+  modal.classList.remove("display-flexImpotant");
   modal.setAttribute("aria-hidden", "true");
   modal.removeAttribute("aria-modal");
   modal.removeEventListener("click", closeModal);
@@ -235,7 +238,7 @@ const openModal2 = function (e) {
   closeModal(e);
   modal2 = document.querySelector(e.target.getAttribute("href"));
   console.log(modal2);
-  modal2.classList.add("display-flex");
+  modal2.classList.add("display-flexImpotant");
   modal2.removeAttribute("aria-hidden");
   modal2.setAttribute("aria-modal", "true");
   modal2.addEventListener("click", closeModal2);
@@ -261,7 +264,7 @@ const closeModal2 = function (e) {
   if (modal2 === null) return;
   e.preventDefault();
 
-  modal2.classList.remove("display-flex");
+  modal2.classList.remove("display-flexImpotant");
   modal2.setAttribute("aria-hidden", "true");
   modal2.removeAttribute("aria-modal");
   modal2.removeEventListener("click", closeModal2);
@@ -362,6 +365,9 @@ const addPicture = function (e) {
   const reader = new FileReader();
   const buttonAddImg = document.querySelector(".buttonAddImg");
   const previewImg = document.getElementById("previewImg");
+  const errFile = document.querySelector(".cssAddPictureInfo");
+  const typeFile = file.type;
+  const fileSize = file.size;
 
   reader.addEventListener(
     "load",
@@ -371,11 +377,28 @@ const addPicture = function (e) {
     },
     false
   );
+  console.log(file.type);
+  console.log(fileSize);
 
-  if (file) {
+  if (
+    (file && fileSize < 4000000 && typeFile === "image/png") ||
+    typeFile === "image/jpg"
+  ) {
     reader.readAsDataURL(file);
     buttonAddImg.classList.add("display-none");
-    previewImg.classList.add("display-flex");
+    previewImg.classList.add("display-flexImpotant");
+  } else {
+    if (fileSize < 4000000) {
+      if (typeFile === "image/png" || typeFile === "image/jpg") {
+        return;
+      } else {
+        errFile.innerText = "Attention, mauvais format de fichier : jpg, png";
+        errFile.classList.add("errFormat");
+      }
+    } else {
+      errFile.innerText = "Attention, fichier trop volumineux : 4mo max";
+      errFile.classList.add("errFormat");
+    }
   }
 };
 
@@ -396,14 +419,42 @@ function formOk() {
     console.log(baliseTitreValue);
     console.log(previewImg);
     if (
-      baliseCategorieValue === null ||
+      baliseCategorieValue === "" ||
       baliseTitreValue === "" ||
-      previewImg.className !== "display-flex"
+      previewImg.className !== "display-flexImpotant"
     ) {
-      return;
+      buttonValidateArticle.classList.remove("backgroundGreen");
+      buttonValidateArticle.disabled = true;
     } else {
       buttonValidateArticle.classList.add("backgroundGreen");
       buttonValidateArticle.disabled = false;
     }
   });
+}
+
+function formReset() {
+  const previewImg = document.getElementById("previewImg");
+  const buttonValidateArticle = document.querySelector(
+    ".buttonValidateArticle"
+  );
+  const buttonAddImg = document.querySelector(".buttonAddImg");
+
+  document.querySelector(".formNewArticle").reset();
+  buttonAddImg.classList.remove("display-none");
+  previewImg.classList.remove("display-flexImpotant");
+  buttonValidateArticle.classList.remove("backgroundGreen");
+  buttonValidateArticle.disabled = true;
+}
+
+function anchorage() {
+  const contact = document.getElementById("contact");
+  if (window.location.hash) {
+    const anchorage = window.location.hash.replace("#", "");
+    console.log(anchorage);
+    console.log(contact.id);
+    if (anchorage === contact.id) {
+      //window.scrollTo(0, 4000);
+      document.querySelector(".contact").click();
+    }
+  }
 }

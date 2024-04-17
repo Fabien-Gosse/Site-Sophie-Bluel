@@ -1,0 +1,207 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+  background-color: #fffef8;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/** end reset css**/
+.main-content {
+  max-width: 1140px;
+  margin: auto;
+}
+
+/****** header ******/
+header {
+  margin: 50px 0 109px 0;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 800;
+  color: #b1663c;
+}
+
+h1 > span {
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+nav ul {
+  list-style-type: none;
+  gap: 44px;
+}
+nav li {
+  font-size: 1.2em;
+}
+nav a {
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+.navLogin {
+  display: inline;
+}
+
+nav .fa-instagram {
+  font-size: 23px;
+}
+/****** main ******/
+main {
+  max-width: 950px;
+  margin: auto;
+}
+
+section {
+  margin: 50px 0;
+}
+
+h2 {
+  font-size: 30px;
+  color: #1d6154;
+}
+
+input[type="submit"] {
+  color: white;
+  margin: 37px auto;
+  height: 36px !important;
+  width: 180px;
+  border-radius: 60px;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+/****** footer ******/
+
+footer nav ul {
+  justify-content: flex-end;
+  height: 60px;
+  padding-right: 107px;
+}

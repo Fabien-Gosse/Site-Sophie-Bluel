@@ -65,5 +65,8 @@ async function createToken(bodyCharge) {
 
 function login(token) {
   localStorage.setItem("tokenLogin", token);
+  console.log(token);
+  const tokenLogin = localStorage.getItem("tokenLogin");
+  console.log(tokenLogin);
   document.location.href = "./index.html";
 }
