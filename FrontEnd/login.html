@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sophie Bluel - Architecte d'intérieur - login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="description" content="" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/login.css" />
+    <link rel="stylesheet" href="./assets/css/edit.css" />
+    <script type="module" src="./assets/js/login.js" defer></script>
+  </head>
+
+  <body>
+    <div class="main-content fontWorkSans font-size14">
+      <header class="display-flex space-between">
+        <h1 class="display-flex flex-column fontSyne">
+          Sophie Bluel
+          <span class="fontWorkSans font-size10">Architecte d'intérieur</span>
+        </h1>
+        <nav>
+          <ul class="display-flex align-center">
+            <li><a href="./index.html#portfolio">projets</a></li>
+            <li><a href="./index.html#contact">contact</a></li>
+            <li>
+              <a href="./login.html" class="font-weight-600">login</a>
+            </li>
+            <li><i class="fa-brands fa-instagram"></i></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section
+          id="login"
+          class="display-flex align-center flex-column text-align-center"
+        >
+          <h2 class="margin-bot30 margin-top100 fontSyne font-weight-700">
+            Log In
+          </h2>
+          <form class="width-max formLogin">
+            <label
+              for="email"
+              class="text-start margin-bot6 color-darkgrey display-block text-align-left font-weight-500"
+              >E-mail</label
+            >
+            <input
+              type="text"
+              id="email"
+              name="email"
+              class="width-max height-49 shadow margin-bot30 border-none"
+              required
+            />
+            <br />
+            <label
+              for="email"
+              class="text-start margin-bot6 color-darkgrey display-block text-align-left font-weight-500"
+              >Mot de passe</label
+            >
+            <input
+              type="text"
+              id="password"
+              name="password"
+              class="width-max height-49 shadow border-none"
+              required
+            />
+            <br />
+            <input
+              type="submit"
+              value="Se connnecter"
+              class="btnSeConnecter border-none fontSyne font-weight-700 text-align-center backgroundGreen"
+            />
+          </form>
+          <p class="color-darkgrey underline font-weight-500">
+            Mot de passe oublié
+          </p>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <nav>
+        <ul class="display-flex align-center">
+          <li class="fontWorkSans font-size14 font-weight-300">
+            Mentions Légales
+          </li>
+        </ul>
+      </nav>
+    </footer>
+    <!-- Popup d'erreur -->
+    <div class="popupBackground display-none">
+      <div
+        class="popup justify-center font-weight-700 text-align-center align-center"
+      >
+        <p>Erreur dans l’identifiant ou le mot de passe</p>
+      </div>
+    </div>
+  </body>
+</html>
