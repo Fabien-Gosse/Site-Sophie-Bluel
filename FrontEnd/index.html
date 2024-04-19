@@ -10,7 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Work+Sans&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500&display=swap"
+      rel="stylesheet"
+    />
     <meta name="description" content="" />
     <link
       rel="stylesheet"
@@ -22,29 +25,39 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/index.css" />
     <link rel="stylesheet" href="./assets/css/edit.css" />
-    <script type="module" src="./assets/js/index.js" defer></script>
+    <script type="module" src="./assets/js/index.js"></script>
   </head>
   <body>
-    <div class="edit-mod header-edit display-none justify-center fontWorkSans align-center font-size16">
+    <div
+      class="edit-mod header-edit display-none justify-center fontWorkSans align-center font-size16"
+    >
       <i class="fa-regular fa-pen-to-square"></i>
       <p>Mode édition</p>
     </div>
 
     <div class="main-content fontWorkSans font-size14">
       <header class="display-flex space-between">
-        <h1 class="display-flex flex-column fontSyne">Sophie Bluel <span class="fontWorkSans font-size10">Architecte d'intérieur</span></h1>
+        <h1 class="display-flex flex-column fontSyne">
+          Sophie Bluel
+          <span class="fontWorkSans font-size10">Architecte d'intérieur</span>
+        </h1>
         <nav>
           <ul class="display-flex align-center">
             <li><a href="#portfolio">projets</a></li>
             <li><a href="#contact" class="contact">contact</a></li>
             <li class="navLogin"><a href="./login.html">login</a></li>
-            <li class="navLogout display-none"><button class="logout fontWorkSans font-size16">logout</button></li>
+            <li class="navLogout display-none">
+              <button class="logout fontWorkSans font-size16">logout</button>
+            </li>
             <li><i class="fa-brands fa-instagram"></i></li>
           </ul>
         </nav>
       </header>
       <main>
-        <section id="introduction" class="display-flex align-center space-between">
+        <section
+          id="introduction"
+          class="display-flex align-center space-between"
+        >
           <figure>
             <img src="./assets/images/sophie-bluel.png" alt="" />
           </figure>
@@ -69,9 +82,14 @@
         </section>
         <section id="portfolio">
           <div class="display-flex">
-            <h2 class="position-relative fontSyne font-weight-700 text-align-center">
+            <h2
+              class="position-relative fontSyne font-weight-700 text-align-center"
+            >
               <span>Mes Projets</span>
-              <a href="#modal1" class="modification jsModal display-none fontWorkSans font-size14">
+              <a
+                href="#modal1"
+                class="modification jsModal display-none fontWorkSans font-size14"
+              >
                 <i class="fa-regular fa-pen-to-square font-size16"></i>
                 <span>modifier</span>
               </a>
@@ -90,27 +108,39 @@
         <section id="contact">
           <h2 class="fontSyne font-weight-700">Contact</h2>
           <p class="font-size16">Vous avez un projet ? Discutons-en !</p>
-          <form action="#" method="post" class="display-flex flex-column text-align-left">
-            <label for="name" class="text-align-left font-weight-500">Nom</label>
-            <input type="text" name="name" id="name" class="height-51"/>
-            <label for="email" class="text-align-left font-weight-500">E-mail</label>
-            <input type="email" name="email" id="email" class="height-51"/>
-            <label for="message" class="text-align-left font-weight-500">Message</label>
+          <form
+            action="#"
+            method="post"
+            class="display-flex flex-column text-align-left"
+          >
+            <label for="name" class="text-align-left font-weight-500"
+              >Nom</label
+            >
+            <input type="text" name="name" id="name" class="height-51" />
+            <label for="email" class="text-align-left font-weight-500"
+              >E-mail</label
+            >
+            <input type="email" name="email" id="email" class="height-51" />
+            <label for="message" class="text-align-left font-weight-500"
+              >Message</label
+            >
             <textarea
               name="message"
               id="message"
               cols="30"
               rows="10"
             ></textarea>
-            <input type="submit" class="fontSyne font-weight-700 text-align-center backgroundGreen" value="Envoyer" />
+            <input
+              type="submit"
+              class="fontSyne font-weight-700 text-align-center backgroundGreen"
+              value="Envoyer"
+            />
           </form>
         </section>
         <aside
           id="modal1"
           class="modal display-none justify-center align-center"
           aria-hidden="true"
-          role="dialog"
-          aria-modal="false"
         >
           <div class="modalWrapper jsStopModal backgroungWhite">
             <div class="display-flex flex-column flex-end">
@@ -121,7 +151,12 @@
             <div class="display-flex align-center flex-column">
               <h3 class="text-align-center">Galerie photo</h3>
               <div class="galleryModal"></div>
-              <a href="#modal2" class="modalAddPicture fontSyne display-flex align-center justify-center backgroundGreen"> Ajouter une photo </a>
+              <a
+                href="#modal2"
+                class="modalAddPicture fontSyne display-flex align-center justify-center backgroundGreen"
+              >
+                Ajouter une photo
+              </a>
             </div>
           </div>
         </aside>
@@ -129,8 +164,6 @@
           id="modal2"
           class="modal2 display-none justify-center align-center"
           aria-hidden="true"
-          role="dialog"
-          aria-modal="false"
         >
           <div
             class="modalWrapper jsStopModal display-flex align-center flex-column backgroungWhite"
@@ -144,27 +177,72 @@
               </button>
             </div>
             <h3 class="text-align-center">Ajout photo</h3>
-            <form name="formNewArticle" enctype="multipart/form-data" method="post" class="formNewArticle">
-              <button type="button" class="buttonAddImg width-420 zIndex0 border-none addPicture display-flex flex-column align-center">
+            <form
+              name="formNewArticle"
+              enctype="multipart/form-data"
+              method="post"
+              class="formNewArticle"
+            >
+              <button
+                type="button"
+                class="buttonAddImg width-420 zIndex0 border-none addPicture display-flex flex-column align-center"
+              >
                 <i
                   class="fa-regular fa-image font-size59"
                   style="color: #b9c5cc"
                 ></i>
-                <input type="file" accept="image/png, image/jpg" id="image" name="image" class="position-absolute addPicture height-170" required />
-                <p class="zIndex0 cssAddPictureInput fontWorkSans display-flex align-center justify-center"> + Ajouter photo</p>
-                <p class="zIndex0 cssAddPictureInfo fontWorkSans font-size10">jpg, png : 4mo max</p>
+                <input
+                  type="file"
+                  accept="image/png, image/jpg"
+                  id="image"
+                  name="image"
+                  class="position-absolute addPicture height-170"
+                  required
+                />
+                <p
+                  class="zIndex0 cssAddPictureInput fontWorkSans display-flex align-center justify-center"
+                >
+                  + Ajouter photo
+                </p>
+                <p class="zIndex0 cssAddPictureInfo fontWorkSans font-size10">
+                  jpg, png : 4mo max
+                </p>
               </button>
-              <img src="" id="previewImg" alt="Prévisualisation de l'image à ajouter"/>
-              <label for="title" class="color3D3D3D font-size14">Titre</label></br>
-              <input type="text" id="title" name="title" class="width-388 height-51 border-none boxshadow9 margin10Top20Bot titreNewArticle
-              padding-left-rigth-16 fontWorkSans font-size14 color444444" required /></br>
-              <label for="category" class="color3D3D3D font-size14">Catégorie</label></br>
-              <select id="category" name="category" autocomplete="off" class="width-420 height-51 border-none boxshadow9 margin10Top20Bot categorieNewArticle
-              padding-left-rigth-16 fontWorkSans font-size14 color444444" required>
-              <option value=""></option>
-              </select> </br>
+              <img
+                src="#"
+                id="previewImg"
+                alt="Prévisualisation de l'image à ajouter"
+              />
+              <label for="title" class="color3D3D3D font-size14">Titre</label
+              ><br />
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="width-388 height-51 border-none boxshadow9 margin10Top20Bot titreNewArticle padding-left-rigth-16 fontWorkSans font-size14 color444444"
+                required
+              /><br />
+              <label for="category" class="color3D3D3D font-size14"
+                >Catégorie</label
+              ><br />
+              <select
+                id="category"
+                name="category"
+                autocomplete="off"
+                class="width-420 height-51 border-none boxshadow9 margin10Top20Bot categorieNewArticle padding-left-rigth-16 fontWorkSans font-size14 color444444"
+                required
+              >
+                <option value=""></option>
+              </select>
+              <br />
               <hr />
-              <button type="submit" class="border-none buttonValidateArticle fontSyne font-size14 font-weight-700 text-align-center display-block" disabled="true">Valider</button>
+              <button
+                type="submit"
+                class="border-none buttonValidateArticle fontSyne font-size14 font-weight-700 text-align-center display-block"
+                disabled
+              >
+                Valider
+              </button>
             </form>
           </div>
         </aside>
@@ -173,7 +251,9 @@
     <footer class="backgroungWhite">
       <nav>
         <ul class="display-flex align-center">
-          <li class="fontWorkSans font-size14 font-weight-300">Mentions Légales</li>
+          <li class="fontWorkSans font-size14 font-weight-300">
+            Mentions Légales
+          </li>
         </ul>
       </nav>
     </footer>
